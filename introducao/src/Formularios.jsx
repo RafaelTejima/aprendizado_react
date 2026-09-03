@@ -11,7 +11,7 @@ function Formularios(){
 
         if(nome == ""){
             alert("Nome inválido.")
-            return
+            return   
         }
 
         if(idade <= 0){
@@ -19,12 +19,12 @@ function Formularios(){
             return
         }
 
-        if(cidade == null){
+        if(cidade == ""){
             alert("Cidade inválida")
             return
         }
 
-        if(estado == null){
+        if(estado == ""){
             alert("Estado inválido")
             return
         }
@@ -51,10 +51,7 @@ function Formularios(){
             <input placeholder="Estado" onChange={e => setEstado(e.target.value)} />
             <br/>
             <br/>
-            <button onClick={salvar}>Salvar</button>
-
-
-
+            <button onClick={salvar}>Salvar</button> 
         </div>
     )
 }
