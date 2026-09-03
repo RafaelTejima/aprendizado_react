@@ -1,29 +1,28 @@
+import { useState } from "react"
+
 function App() {
 
-  let cliques = 0 // useState
+  let [cliques, setCliques] = useState(0)
+  let [nome, setNome] = useState("aguardando...")
 
-  let nome = "Rafael"
-  let cidade = "São Carlos"
-  let nome_completo = " Hiroshi Tejima"
-
-
-  function contarCliques(){
-    cliques += 1
-    
+  function aumentarCliques(){
+    setCliques(cliques + 1)
   }
 
+  function mostrarNome(){
+    setNome(nome = "Rafael")
+  }
 
   return (
    <div>
-    <h1>Olá {2+2} Mundo!</h1>
-    <p>Estou apren{console.log("flores")}dendo React xD</p>
-    <hr/>
-    <p>Meu nome é {nome} {nome_completo} sou da cidade de {cidade}.</p>
-        
+    <h1>Olá Mundo!</h1>
+    <p>Estou aprendendo React xD</p>
+    <p>Meu nome é: {nome} </p>
+    <button onClick={mostrarNome}>Mostrar nome</button>
     <hr/>
 
     <p>Você clicou <strong>{cliques}</strong> vezes</p>
-    <button onClick={contarCliques} >Clique aqui</button>
+    <button onClick={aumentarCliques} >Clique aqui</button>
    </div>
   )
 }
