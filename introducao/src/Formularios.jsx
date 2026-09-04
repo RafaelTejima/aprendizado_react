@@ -2,29 +2,29 @@ import { useState } from "react"
 
 function Formularios(){
 
-    let [nome, setNome] = useState()
-    let [idade, setIdade] = useState()
-    let [cidade, setCidade] = useState()
-    let [estado, setEstado] = useState()
+    let [nome, setNome] = useState("")
+    let [idade, setIdade] = useState("")
+    let [cidade, setCidade] = useState("")
+    let [estado, setEstado] = useState("")
 
     function salvar(){
 
-        if(nome == ""){
+        if(nome < 1){
             alert("Nome inválido.")
             return   
         }
 
-        if(idade <= 0){
+        if(idade < 1){
             alert("Idade inválida")
             return
         }
 
-        if(cidade == ""){
+        if(cidade < 1){
             alert("Cidade inválida")
             return
         }
 
-        if(estado == ""){
+        if(estado < 1){
             alert("Estado inválido")
             return
         }
@@ -46,7 +46,7 @@ function Formularios(){
             <input onChange={e => setIdade(e.target.value)}/>
 
             <br/>
-            <p>Digite onde mora </p>
+            <p>Digite onde mora: </p>
             <input placeholder="Cidade" onChange={e => setCidade(e.target.value)} />
             <input placeholder="Estado" onChange={e => setEstado(e.target.value)} />
             <br/>
