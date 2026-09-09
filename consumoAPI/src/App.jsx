@@ -32,9 +32,9 @@ function App() {
                         <p>lista vazia...</p>
                     :
                         usuarios.map(
-                            i =>  <li> Sr(a) {i.firstName} tem {i.age} anos <button onClick={ ()=> mostrarInformações(i)}>Ver informações</button> </li>
+                            i =>  <li><img src={`https://ui-avatars.com/api/?background=random&name=${i.firstName}+${i.lastName}&size=40&rounded=true`}/> {i.gender == "male" ? "Sr. " : "Sra. "} {i.firstName} tem {i.age} anos <button onClick={ ()=> mostrarInformações(i)}>Ver informações</button> </li>
                         )
-                } 
+                    } 
             </ul>
 
         </div>
