@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
     const [usuarios, alterarUsuarios] = useState([])
-    const [mostrarLista, mostrandolista] = useState(false)
+    const [pesquisa, alterarPesquisa] = useState("")
 
     async function buscarTodos(){
 
@@ -18,13 +18,28 @@ function App() {
         alert("telefone: " + usuario.phone + "\nemail: " + usuario.email + "\nmora em: " + usuario.address.city + " - " + usuario.address.state)
     }
 
+    async function buscarNome(nome){
+
+        const response = await fetch(`https://dummyjson.com/users/search?q=`+nome)
+        const data = await response.json()
+        console.log(data)
+        alterarUsuarios(data.users)
+    }
+
+    useEffect( ()=>{
+        buscarTodos()
+    }, [] )
+
     return (
 
         <div>
 
             <h1>Consumo da API</h1>
             <p>Buscando dados da API DummyJSON</p>
-            <button onClick={buscarTodos} >Carregar dados</button>
+            
+            <br/>
+            <input onChange={ e => alterarPesquisa(e.target.value)} placeholder="Digite seu nome..." />
+            <button onClick={ () => buscarNome(pesquisa)} >🔎Pesquisar</button>
 
             <ul>
                 {
