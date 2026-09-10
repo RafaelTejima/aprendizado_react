@@ -1,39 +1,35 @@
 import { useState } from "react";
 
-function Pokedex() {
+function pokedex() {
 
     const [pokemon, alterarPokemon] = useState([])
-    const [pesquisa, alterarPesquisa] = useState("")
+    const [buscar, alterarBusca] = useState("")
 
-    async function buscarPokemon(){
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon")
+    async function busca(){
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + buscar )
         const data = await response.json()
         console.log(data)
-        buscarPokemon(data.pokemon)
+        alterarPokemon(data)
     }
 
-
-    
     return ( 
-
         <div>
 
-            <h1>Pokedex</h1>
-            <p>Pesquise pelo pokémon que deseja:</p>
-            <input onChange={ e => alterarPesquisa(e.target.value)} placeholder="Ex: Vaporeon" />
-            <button onClick={ () => alterarPokemon(pesquisa)} >🔎 Pesquisar</button>
-            <button onClick={buscarPokemon} >teste</button>
-            <hr/>
+        <h1>Pokedex</h1>
+        <p>Digite o nome do seu pokemon favorito:</p>
+        <input onChange={e => alterarBusca(e.target.value)}  placeholder="Ex: Vaporeon" />
+        <button onClick={() => alterarPokemon(busca)} >Pesquisar</button>
+        <hr/>
 
-            <ul>
-                <h1>Nome: *</h1>
-                <p>Tipo: {} </p>
-                <img src="" />
-            </ul>
+        <ul>
+            <h1>Nome: {pokemon.name}</h1>
+            <p>Tipo: {pokemon.types?.[0]?.type.name}</p>
+            <img src={pokemon.sprites?.other.showdown.front_default} width={200} />
+        </ul>
+
 
         </div>
-
-);
+     );
 }
 
-export default Pokedex;
+export default pokedex;

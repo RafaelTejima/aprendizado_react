@@ -4,6 +4,6 @@ import Pokedex from './pokedex.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Pokedex/>
+    <Pokedex />
   </StrictMode>,
 )
