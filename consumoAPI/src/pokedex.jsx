@@ -1,4 +1,6 @@
 import { useState } from "react";
+import './pokedex.css';
+import pokedexInterface from './pokedex/pokedexInterface.png'
 
 function pokedex() {
 
@@ -13,8 +15,9 @@ function pokedex() {
     }
 
     return ( 
-        <div>
+        <div className="pokedex" >
 
+        <img className="interface" src={pokedexInterface} />
         <h1>Pokedex</h1>
         <p>Digite o nome do seu pokemon favorito:</p>
         <input onChange={e => alterarBusca(e.target.value)}  placeholder="Ex: Vaporeon" />

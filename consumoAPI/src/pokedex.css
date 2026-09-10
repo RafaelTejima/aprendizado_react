@@ -1,0 +1,25 @@
+@font-face {
+    font-family: PKMN;
+    src: url('./pokedex/PKMN.ttf');
+}
+
+body{
+    text-align: center;
+    font-family: PKMN;
+}
+
+.interface{
+    ;
+}
+
+body button{
+    color: black;
+    background-color: white;
+    border: black;
+    border-style: solid;
+    
+}
+
+.pokedex{
+    
+}
