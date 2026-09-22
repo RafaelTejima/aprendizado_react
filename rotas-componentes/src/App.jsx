@@ -1,28 +1,20 @@
-import MenuSuperior from "./components/menuSuperior";
-import Rodape from "./components/Rodape";
-import Produto from "./components/produto";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Inicio from "./pages/inicio";
+import Contato from "./pages/contato";
 
 function App() {
-
-  const deck = {
-    display: "flex",
-    gap: 20,
-  }
 
   return (
 
     <div>
-      <MenuSuperior/>
-      <h1>Rotas e componentes</h1>
-      <p><strong>Rotas: </strong>permite criar páginas e navegação no site</p>
-      <p><strong>Componentes: </strong>pequenas partes de site (layout) reutilizáveis</p>
+      
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Inicio/>} />
+            <Route path="/contato" element={<Contato/>} />
+          </Routes>
+        </BrowserRouter>
 
-      <div style={deck} >
-        <Produto/>
-        <Produto/>
-        <Produto/>
-      </div>
-      <Rodape/>
     </div>
 
    );
